@@ -19,7 +19,7 @@ redis_store =None
 def create_app(config_name):
     """通过传入不同的配置名字，初始化其对应配置的应用实例"""
     setup_log(config_name)
-    app = Flask(__name__)
+    app = Flask(__name__,static_folder="../static")
 
     # 配置
     app.config.from_object(config[config_name])
@@ -33,7 +33,7 @@ def create_app(config_name):
     # 设置session保存位置
     Session(app)
     from index import indexblue
-    app.register_blueprint(indexblue)
+    app.register_blueprint(indexblue,url_prefix ="/admin")
     return app
 
 def setup_log(config_name):

@@ -4,5 +4,6 @@
 # @Author  : Ke xing
 # @Blog    ：https://blog.csdn.net/weixin_45131345?spm=1000.2123.3001.5113
 from flask import Blueprint
-indexblue = Blueprint("index",__name__)
+indexblue = Blueprint("index",__name__,static_folder="./static")
 from flask import logging
+from . import views

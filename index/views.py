@@ -10,3 +10,8 @@ from .import indexblue
 def index():
     current_app.logger.info('我来了')
     return "index"
+
+@indexblue.route("/password")
+def pa():
+
+    return "password"
