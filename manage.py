@@ -10,7 +10,7 @@ app.secret_key = "aaasfdfasdg"
 app.debug = True
 @app.route("/")
 def index():
-    a=1
+
     return "hello"
 if __name__ == '__main__':
     app.run()
