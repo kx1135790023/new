@@ -1,16 +1,21 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# @Time    : 2020/12/22 15:34
-# @Author  : Ke xing
-# @Blog    ：https://blog.csdn.net/weixin_45131345?spm=1000.2123.3001.5113
-from flask import Flask
-app = Flask(__name__)
-app.secret_key = "aaasfdfasdg"
+from flask_script import Manager
+from flask_migrate import Migrate, MigrateCommand
+from info import create_app, db
+import sys
+import os
+sys.path.append("./")
+app = create_app("development")
+# Flask-script
+manager = Manager(app)
+# 数据库迁移
+Migrate(app, db)
+manager.add_command('db', MigrateCommand)
 
-app.debug = True
-@app.route("/")
+
+@app.route('/index')
 def index():
+    return 'index'
 
-    return "hello"
+
 if __name__ == '__main__':
-    app.run()
+    manager.run()
