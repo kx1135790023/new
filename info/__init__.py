@@ -5,7 +5,6 @@
 # @Blog    ：https://blog.csdn.net/weixin_45131345?spm=1000.2123.3001.5113
 import logging
 from logging.handlers import RotatingFileHandler
-
 import redis
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
